@@ -17,10 +17,10 @@ def get_weather():
     )
     json_resp = response.json()
     result = {
-        'rain': json_resp.get('rain', {'1h': 0}).get('1h'),
-        'wind': json_resp.get('wind', {'speed': 0}).get('speed'),
-        'temp': json_resp.get('main', {'temp': 0}).get('temp'),
-        'humidity': json_resp.get('main', {'humidity': 0}).get('humidity')
+        'rain': float(json_resp.get('rain', {'1h': 0.0}).get('1h')),
+        'wind': float(json_resp.get('wind', {'speed': 0.0}).get('speed')),
+        'temp': float(json_resp.get('main', {'temp': 0.0}).get('temp')),
+        'humidity': float(json_resp.get('main', {'humidity': 0.0}).get('humidity'))
     }
     return result
 
